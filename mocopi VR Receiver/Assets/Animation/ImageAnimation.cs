@@ -52,7 +52,7 @@ public class ImageAnimation : MonoBehaviour
     /// `direction` が 1 の場合、右へスライド（次の画像へ）
     /// `direction` が -1 の場合、左へスライド（前の画像へ）
     /// </summary>
-    IEnumerator Slide(int direction)
+    public IEnumerator Slide(int direction)
     {
         if (isSliding) yield break;
         isSliding = true;

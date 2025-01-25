@@ -97,6 +97,8 @@ namespace Mocopi.Receiver
         /// </summary>
         [Range(0, 1f)] public float DelayRecoveryRate = 0.001f;
 
+        public bool IsFirstMotionReceived = false;
+
         /// <summary>
         /// Remove AnimatorController on update or not
         /// </summary>
@@ -364,6 +366,10 @@ namespace Mocopi.Receiver
             this.skeletonData.PositionsZ = positionsZ;
 
             this.isSkeletonUpdated = true;
+            if (!this.IsFirstMotionReceived)
+            {
+                this.IsFirstMotionReceived = true;
+            }
 
             this.fpsFrameCounter++;
         }

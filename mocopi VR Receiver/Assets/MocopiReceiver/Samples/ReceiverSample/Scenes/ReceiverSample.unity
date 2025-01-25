@@ -170,6 +170,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5701386897526427394, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: _mocopiAvatar
+      value: 
+      objectReference: {fileID: 515705520}
+    - target: {fileID: 5701386897526427394, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: _imageAnimation
+      value: 
+      objectReference: {fileID: 1298302002}
+    - target: {fileID: 7714382650175458803, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: _mocopiAvatar
+      value: 
+      objectReference: {fileID: 515705520}
+    - target: {fileID: 7714382650175458803, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: _imageAnimation
+      value: 
+      objectReference: {fileID: 1298302002}
     - target: {fileID: 8633993219727166162, guid: 0402964053ece42e3a975ad22c283878, type: 3}
       propertyPath: m_Name
       value: RaynosChanAvatar
