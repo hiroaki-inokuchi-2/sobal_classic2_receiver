@@ -9,7 +9,7 @@ public class ImageAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartAnimation();
+        StartTurning(false);
     }
 
     // Update is called once per frame
@@ -18,29 +18,27 @@ public class ImageAnimation : MonoBehaviour
         
     }
 
-    public void StartAnimation()
+    public void StartTurning(bool isReverse)
     {
-        Debug.Log("StartAnimation()");
-        StartCoroutine("TurningReverse");
-
+        Debug.Log("StartTurning(): isReverse = " + isReverse);
+        StartCoroutine(Turning(isReverse));
     }
 
-    IEnumerator Turning()
+    IEnumerator Turning(bool isReverse)
     {
-        Debug.Log("Turning()");
-        for (int i = 0; i < 40; i++)
+        float moveValue;
+        if (isReverse)
         {
-            targetObject.transform.position += new Vector3(50f, 0, 0);
-            yield return null;
+            moveValue = 50f;
         }
-    }
+        else
+        {
+            moveValue = -50f;
+        }
 
-    IEnumerator TurningReverse()
-    {
-        Debug.Log("TurningReverse()");
         for (int i = 0; i < 40; i++)
         {
-            targetObject.transform.position += new Vector3(-50f, 0, 0);
+            targetObject.transform.localPosition += new Vector3(moveValue, 0, 0);
             yield return null;
         }
     }
