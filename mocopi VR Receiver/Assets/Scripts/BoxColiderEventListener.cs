@@ -6,7 +6,7 @@ public class BoxColiderEventListener : MonoBehaviour
 {
     public void OnHitWristLeftEvent(Collider col) 
     {
-        if (col.name == "human_low:_l_hand") 
+        if (col.name == "LeftHand") 
         {
             Debug.Log("Hit WRIST L");
         }
@@ -14,7 +14,7 @@ public class BoxColiderEventListener : MonoBehaviour
 
     public void OnHitWristRightEvent(Collider col) 
     {
-        if (col.name == "human_low:_r_hand") 
+        if (col.name == "RightHand") 
         {
             Debug.Log("Hit WRIST R");
         }
@@ -22,7 +22,7 @@ public class BoxColiderEventListener : MonoBehaviour
 
     public void OnHitAnkleLeftEvent(Collider col) 
     {
-        if (col.name == "human_low:_l_low_leg")
+        if (col.name == "LeftLeg")
         {
             Debug.Log("Hit ANKLE L");
         }
@@ -30,7 +30,7 @@ public class BoxColiderEventListener : MonoBehaviour
 
     public void OnHitAnkleRightEvent(Collider col) 
     {
-        if (col.name == "human_low:_r_low_leg") 
+        if (col.name == "RightLeg") 
         {
             Debug.Log("Hit ANKLE R");
         }
