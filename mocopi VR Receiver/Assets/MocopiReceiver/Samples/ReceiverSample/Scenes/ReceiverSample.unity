@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 761409470}
   - component: {fileID: 761409472}
   - component: {fileID: 761409471}
+  - component: {fileID: 761409473}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -391,6 +392,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761409469}
   m_CullTransparentMesh: 1
+--- !u!114 &761409473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761409469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f656eb5075444a95b2c129c66ba8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelImage: {fileID: 761409471}
+  slideSprites:
+  - {fileID: 21300000, guid: e6b0b0ec4084f994badd218e1d2a8bec, type: 3}
+  - {fileID: 21300000, guid: 86d6f9eb993736c449f4e413c829d3b4, type: 3}
+--- !u!1 &1188806988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188806989}
+  m_Layer: 0
+  m_Name: "\u30B9\u30E9\u30A4\u30C97"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1188806989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188806988}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1289490727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,3 +1968,4 @@ SceneRoots:
   - {fileID: 6740635035550157509}
   - {fileID: 639003036}
   - {fileID: 1701625043}
+  - {fileID: 1188806989}
