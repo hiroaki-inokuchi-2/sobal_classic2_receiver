@@ -6,18 +6,6 @@ public class ImageAnimation : MonoBehaviour
 {
     [SerializeField] private GameObject targetObject;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartTurning(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartTurning(bool isReverse)
     {
         Debug.Log("StartTurning(): isReverse = " + isReverse);
