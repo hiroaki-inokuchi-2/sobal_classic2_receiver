@@ -21,14 +21,14 @@ public class FileManager : MonoBehaviour
     void Start()
     {
         string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        Debug.Log($"ƒhƒLƒ…ƒƒ“ƒgƒtƒHƒ‹ƒ_‚ÌƒpƒX: {documentsPath}");
+        Debug.Log($"ï¿½hï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½Ìƒpï¿½X: {documentsPath}");
         string resourceFolderPath = documentsPath + "/Miburitation";
         if (Directory.Exists(resourceFolderPath))
         {
             SetResources(resourceFolderPath);
         } else
         {
-            Debug.LogWarning($"ƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚µ‚Ü‚¹‚ñ: {resourceFolderPath}");
+            Debug.LogWarning($"ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½: {resourceFolderPath}");
         }
     }
 
@@ -50,19 +50,9 @@ public class FileManager : MonoBehaviour
 
            Texture2D tex2D = convertTexture2D(file);
 
-            // eƒIƒuƒWƒFƒNƒg‚ÌTransform‚ğæ“¾
-            Transform parentTransform = targetObject.transform;
-
-            // eƒIƒuƒWƒFƒNƒg‚Ì1”Ô–Ú‚ÌqƒIƒuƒWƒFƒNƒg‚ğæ“¾iƒCƒ“ƒfƒbƒNƒX‚Í0‚©‚çn‚Ü‚éj
-            Transform childTransform = parentTransform.GetChild(i);
-
-            // qƒIƒuƒWƒFƒNƒg‚Ì–¼‘O‚ğƒƒO‚É•\¦
-            Debug.Log("qƒIƒuƒWƒFƒNƒg: " + childTransform.name);
-
-            Image childImage = childTransform.GetComponent<Image>();
             sprites.Add(Sprite.Create(tex2D, new Rect(0, 0, tex2D.width, tex2D.height), Vector2.zero));
         }
-        Debug.Log("qƒIƒuƒWƒFƒNƒg: " + sprites);
+        Debug.Log("ï¿½qï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g: " + sprites);
         _imageAnimation.slideSprites = sprites.ToArray();
     }
 

@@ -63,19 +63,19 @@ public class LaserPointerScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(handWorldPosition, forwardDirection, out hit, Mathf.Infinity, slideLayer))
         {
-            Debug.Log("Raycast hit: " + hit.collider.name);
+            //Debug.Log("Raycast hit: " + hit.collider.name);
 
             // **スライド上のヒットポイントを取得**
             Vector3 hitPosition = hit.point;
 
             // **ワールド座標 → スクリーン座標に変換**
             Vector3 screenPosition = uiCamera.WorldToScreenPoint(hitPosition);
-            Debug.Log("Screen Position: " + screenPosition);
+            //Debug.Log("Screen Position: " + screenPosition);
 
             // **スクリーン座標 → UI のローカル座標に変換**
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(slideArea, screenPosition, uiCamera, out pointerPosition))
             {
-                Debug.Log("Pointer Position: " + pointerPosition);
+                //Debug.Log("Pointer Position: " + pointerPosition);
 
                 // **ポインターを移動**
                 pointerImage.rectTransform.anchoredPosition = pointerPosition;
@@ -84,7 +84,7 @@ public class LaserPointerScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Raycast did not hit anything.");
+            //Debug.Log("Raycast did not hit anything.");
         }
     }
 
@@ -93,6 +93,7 @@ public class LaserPointerScript : MonoBehaviour
     /// </summary>
     private void UpdateTrail(Vector3 worldPosition)
     {
+        worldPosition+= new Vector3(0,0,1);
         if (!isPointerEnabled) return;
 
         if (activeTrail == null)
