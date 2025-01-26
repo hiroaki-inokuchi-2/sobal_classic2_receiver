@@ -14,14 +14,37 @@ public class LaserPointerScript : MonoBehaviour
     
     private GameObject activeTrail; // **現在の軌跡オブジェクト**
     private Vector2 pointerPosition; // **ポインターの現在位置**
+    private bool isPointerEnabled = false; // **ポインターのオンオフ状態（デフォルトはオフ）**
 
     void Update()
     {
-        if (avatarRightHand != null && avatarRightForearm != null)
+        // **Ctrl（Windows） or Command（Mac）＋L でポインター表示を切り替え**
+        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl) ||
+             Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.RightCommand)) &&
+            Input.GetKeyDown(KeyCode.L))
+        {
+            TogglePointer();
+        }
+
+        if (isPointerEnabled && avatarRightHand != null && avatarRightForearm != null)
         {
             // **mocopi の右前腕の向きに基づいてポインター位置を計算**
             UpdatePointerWithMocopi();
         }
+    }
+
+    /// <summary>
+    /// **ポインターのオンオフを切り替える**
+    /// </summary>
+    public void TogglePointer()
+    {
+        isPointerEnabled = !isPointerEnabled;
+        pointerImage.gameObject.SetActive(isPointerEnabled);
+        if (!isPointerEnabled && activeTrail != null)
+        {
+            Destroy(activeTrail);
+        }
+        Debug.Log("Pointer Toggled: " + isPointerEnabled);
     }
 
     /// <summary>
@@ -70,6 +93,8 @@ public class LaserPointerScript : MonoBehaviour
     /// </summary>
     private void UpdateTrail(Vector3 worldPosition)
     {
+        if (!isPointerEnabled) return;
+
         if (activeTrail == null)
         {
             // **新しい Trail を作成（ワールド空間に配置）**
