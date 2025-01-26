@@ -170,10 +170,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 823935863654775622, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 823935863654775622, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 823935863654775622, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 823935863654775622, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 823935863654775622, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 823935863654775622, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242594964243140144, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242594964243140144, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242594964243140144, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242594964243140144, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242594964243140144, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242594964243140144, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507789543670854014, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -60.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208582197564096531, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208582197564096531, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_Center.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208582197564096531, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_Center.y
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208582197564096531, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_Center.z
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 5701386897526427394, guid: 0402964053ece42e3a975ad22c283878, type: 3}
       propertyPath: _mocopiAvatar
       value: 
-      objectReference: {fileID: 515705520}
+      objectReference: {fileID: 6035907565535944368}
     - target: {fileID: 5701386897526427394, guid: 0402964053ece42e3a975ad22c283878, type: 3}
       propertyPath: _imageAnimation
       value: 
@@ -181,11 +249,27 @@ PrefabInstance:
     - target: {fileID: 7714382650175458803, guid: 0402964053ece42e3a975ad22c283878, type: 3}
       propertyPath: _mocopiAvatar
       value: 
-      objectReference: {fileID: 515705520}
+      objectReference: {fileID: 6035907565535944368}
     - target: {fileID: 7714382650175458803, guid: 0402964053ece42e3a975ad22c283878, type: 3}
       propertyPath: _imageAnimation
       value: 
       objectReference: {fileID: 1298302002}
+    - target: {fileID: 8549307853582558168, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549307853582558168, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_Center.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549307853582558168, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_Center.y
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549307853582558168, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+      propertyPath: m_Center.z
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 8633993219727166162, guid: 0402964053ece42e3a975ad22c283878, type: 3}
       propertyPath: m_Name
       value: RaynosChanAvatar
@@ -374,17 +458,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372509658}
   m_CullTransparentMesh: 1
---- !u!114 &515705520 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6035907565554091138, guid: 0402964053ece42e3a975ad22c283878, type: 3}
-  m_PrefabInstance: {fileID: 19733042}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238345459e3cc47b99543f30eaacf14a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &699866029
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +935,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6035907565535944368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6035907565554091138, guid: 0402964053ece42e3a975ad22c283878, type: 3}
+  m_PrefabInstance: {fileID: 19733042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238345459e3cc47b99543f30eaacf14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7067107785146361298
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AvatarSettings:
-  - MocopiAvatar: {fileID: 515705520}
+  - MocopiAvatar: {fileID: 6035907565535944368}
     Port: 12351
   IsReceivingOnEnable: 1
 --- !u!1660057539 &9223372036854775807
