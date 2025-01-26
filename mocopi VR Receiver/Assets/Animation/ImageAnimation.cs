@@ -5,18 +5,20 @@ using System.Linq;
 
 public class ImageAnimation : MonoBehaviour
 {
-    private const float SLIDE_WIDTH = 1920f; // **スライドの幅 (画面幅)**
+    private float SLIDE_WIDTH = 1920f; // **スライドの幅 (画面幅)**
     
     // **スライド用の3つのパネル (UIオブジェクト)**
     [SerializeField] private GameObject[] slides = new GameObject[3]; // **3つのスライド**
     [SerializeField] private Image[] slideImages = new Image[3]; // **スライドの画像**
     
-    [SerializeField] private Sprite[] slideSprites; // **スライド用の画像リスト**
+    public Sprite[] slideSprites; // **スライド用の画像リスト**
     private int currentImageIndex = 0; // **現在表示中のスライド画像のインデックス**
     private bool isSliding = false; // **スライド中かどうかのフラグ**
 
     void Start()
     {
+        SLIDE_WIDTH = Screen.currentResolution.width;
+
         // **スライドの初期位置を設定**
         slides[0].transform.localPosition = new Vector3(-SLIDE_WIDTH, 0, 0); // 左
         slides[1].transform.localPosition = Vector3.zero; // 中央
