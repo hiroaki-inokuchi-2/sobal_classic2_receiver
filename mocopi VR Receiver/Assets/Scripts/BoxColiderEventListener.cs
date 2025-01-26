@@ -16,9 +16,9 @@ public class BoxColiderEventListener : MonoBehaviour
     {
         if (this._mocopiAvatar.IsFirstMotionReceived && col.name == "LeftHand") 
         {
-            // 左手を横に伸ばすと前のスライドへ
+            // 左手を横に伸ばすと次のスライドへ
             Debug.Log("Hit WRIST L");
-            StartCoroutine(this._imageAnimation.Slide(-1));
+            StartCoroutine(this._imageAnimation.Slide(1));
         }
     }
 
@@ -26,9 +26,9 @@ public class BoxColiderEventListener : MonoBehaviour
     {
         if (this._mocopiAvatar.IsFirstMotionReceived && col.name == "RightHand") 
         {
-            // 右手を伸ばすと次のスライドへ
+            // 右手を伸ばすと前のスライドへ
             Debug.Log("Hit WRIST R");
-            StartCoroutine(this._imageAnimation.Slide(1));
+            StartCoroutine(this._imageAnimation.Slide(-1));
         }
     }
 
@@ -36,7 +36,9 @@ public class BoxColiderEventListener : MonoBehaviour
     {
         if (this._mocopiAvatar.IsFirstMotionReceived && col.name == "LeftLeg")
         {
+            // 左手を横に伸ばすと次のスライドへ
             Debug.Log("Hit ANKLE L");
+            StartCoroutine(this._imageAnimation.Slide(1));
         }
     }
 
@@ -44,7 +46,9 @@ public class BoxColiderEventListener : MonoBehaviour
     {
         if (this._mocopiAvatar.IsFirstMotionReceived && col.name == "RightLeg") 
         {
+            // 右手を伸ばすと前のスライドへ
             Debug.Log("Hit ANKLE R");
+            StartCoroutine(this._imageAnimation.Slide(-1));
         }
     }
 }
