@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 284317463}
   - component: {fileID: 284317462}
   - component: {fileID: 284317466}
+  - component: {fileID: 284317467}
   m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
@@ -260,6 +261,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1920, y: 1080, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &284317467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284317461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae752ef94df90b4aa7db6bcecb65752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &372509658
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -319,7 +332,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e6b0b0ec4084f994badd218e1d2a8bec, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -475,6 +488,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2059947048127419892, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: _lazerPointer
+      value: 
+      objectReference: {fileID: 1766514672}
+    - target: {fileID: 2059947048127419892, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: _imageAnimation
+      value: 
+      objectReference: {fileID: 1298302002}
+    - target: {fileID: 4729408991008855142, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: _lazerPointer
+      value: 
+      objectReference: {fileID: 1766514672}
+    - target: {fileID: 4729408991008855142, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: _imageAnimation
+      value: 
+      objectReference: {fileID: 1298302002}
     - target: {fileID: 6268890520554478300, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
       propertyPath: m_Name
       value: RaynosChanAvatar
@@ -520,7 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -529,7 +558,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e6b0b0ec4084f994badd218e1d2a8bec, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -858,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -867,7 +896,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e6b0b0ec4084f994badd218e1d2a8bec, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1044,6 +1073,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1501666604a64d0baeb52daae64e29b, type: 3}
+--- !u!114 &1766514672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6700280857048205669, guid: d1501666604a64d0baeb52daae64e29b, type: 3}
+  m_PrefabInstance: {fileID: 1727289332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a2aba85516e4cb6943cb44f97e5379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1993783141
 GameObject:
   m_ObjectHideFlags: 0

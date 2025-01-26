@@ -12,13 +12,17 @@ public class BoxColiderEventListener : MonoBehaviour
     [SerializeField]
     private MocopiAvatar _mocopiAvatar;
 
+    [SerializeField]
+    private LaserPointerScript _lazerPointer;
+
     public void OnHitWristLeftEvent(Collider col) 
     {
         if (this._mocopiAvatar.IsFirstMotionReceived && col.name == "LeftHand") 
         {
-            // 左手を横に伸ばすと次のスライドへ
+            // 左手を横に伸ばすとレーザーポインターの切り替え
             Debug.Log("Hit WRIST L");
-            StartCoroutine(this._imageAnimation.Slide(1));
+            this._lazerPointer.TogglePointer();
+            //StartCoroutine(this._imageAnimation.Slide(1));
         }
     }
 
@@ -26,9 +30,8 @@ public class BoxColiderEventListener : MonoBehaviour
     {
         if (this._mocopiAvatar.IsFirstMotionReceived && col.name == "RightHand") 
         {
-            // 右手を伸ばすと前のスライドへ
             Debug.Log("Hit WRIST R");
-            StartCoroutine(this._imageAnimation.Slide(-1));
+            //StartCoroutine(this._imageAnimation.Slide(-1));
         }
     }
 
