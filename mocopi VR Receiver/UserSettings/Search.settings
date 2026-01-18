@@ -9,6 +9,9 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"last_search.66F56946" = "slide"
+	"OpenInspectorPreview.66F56946" = "0"
+	"currentGroup.66F56946" = "all"
 }
 providers = {
 	asset = {
@@ -60,6 +63,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"srighthand"
 ]
 searchItemFavorites = [
 ]
@@ -70,7 +74,7 @@ expandedQueries = [
 ]
 queryBuilder = true
 ignoredProperties = "id;name;classname;imagecontentshash"
-helperWidgetCurrentArea = "all"
+helperWidgetCurrentArea = "h:"
 disabledIndexers = ""
 minIndexVariations = 2
 findProviderIndexHelper = true
