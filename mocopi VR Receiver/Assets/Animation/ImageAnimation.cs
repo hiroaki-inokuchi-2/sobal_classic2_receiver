@@ -15,6 +15,29 @@ public class ImageAnimation : MonoBehaviour
     private int currentImageIndex = 0; // **現在表示中のスライド画像のインデックス**
     private bool isSliding = false; // **スライド中かどうかのフラグ**
 
+    public int CurrentImageIndex => currentImageIndex;
+    public int SlideCount => slideSprites != null ? slideSprites.Length : 0;
+
+    public bool CanSlide(int direction)
+    {
+        if (SlideCount == 0)
+        {
+            return false;
+        }
+
+        if (direction > 0)
+        {
+            return currentImageIndex < SlideCount - 1;
+        }
+
+        if (direction < 0)
+        {
+            return currentImageIndex > 0;
+        }
+
+        return false;
+    }
+
     void Start()
     {
         SLIDE_WIDTH = Screen.currentResolution.width;
@@ -58,6 +81,12 @@ public class ImageAnimation : MonoBehaviour
     {
         if (isSliding) yield break;
         isSliding = true;
+
+        if (!CanSlide(direction))
+        {
+            isSliding = false;
+            yield break;
+        }
 
         float duration = 0.2f; // **スライド時間（秒）**
         float elapsedTime = 0f;

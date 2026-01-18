@@ -539,11 +539,20 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9012345678901234567, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6268890520554478300, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1497245384}
   m_SourcePrefab: {fileID: 100100000, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+--- !u!4 &884447105 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8385720156465896850, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+  m_PrefabInstance: {fileID: 884447104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1030860495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 288225850195445001, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
@@ -834,6 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1298302003}
   - component: {fileID: 1298302002}
+  - component: {fileID: 1298302004}
   m_Layer: 0
   m_Name: SlideAnimationManager
   m_TagString: Untagged
@@ -882,11 +892,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1298302004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298302001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deeea90d432c3456d8fd414510cde632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHand: {fileID: 1030860495}
+  leftHand: {fileID: 884447105}
+  slideAnimation: {fileID: 1298302002}
+  swipeReference: {fileID: 0}
+  requireSwipeZone: 1
+  limitToChestHeightOnly: 1
+  swipeZoneCenter: {x: 0, y: 1.175, z: 0.25}
+  swipeZoneSize: {x: 0.6, y: 0.35, z: 0.4}
+  swipeMinDistance: 0.12
+  swipeMaxDuration: 0.25
+  minSwipeSpeed: 0.5
+  swipeCooldown: 0.6
+  swipeMaxVertical: 0.15
+  swipeMaxDepth: 0.2
+  leftHandName: WRIST LEFT
+  showDebugOverlay: 1
+  debugCanvas: {fileID: 0}
+  debugText: {fileID: 0}
+  debugFontSize: 20
+  debugTextColor: {r: 1, g: 0, b: 0, a: 1}
+  debugBackground: {fileID: 0}
+  debugBackgroundColor: {r: 0, g: 0, b: 0, a: 0.6}
+  debugPadding: {x: 8, y: 6}
 --- !u!1 &1355902110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2304584823250315630, guid: 3d1d62a7e9f2647edb99bcf07ec8f28a, type: 3}
   m_PrefabInstance: {fileID: 1703042982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1497245382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6268890520554478300, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+  m_PrefabInstance: {fileID: 884447104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1497245384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497245382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb0fbaa8e604790860222f642cdf83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHand: {fileID: 1030860495}
+  leftHand: {fileID: 884447105}
+  mocopiAvatar: {fileID: 127958110}
+  clapDistanceThreshold: 0.18
+  clapCooldown: 0.4
+  requiredConsecutiveClaps: 3
+  consecutiveClapWindow: 2
+  clapSource: {fileID: 0}
+  clapClip: {fileID: 8300000, guid: dfb437b1289c946d38be6e6395f850e5, type: 3}
+  showDebugOverlay: 1
+  debugCanvas: {fileID: 0}
+  debugText: {fileID: 0}
+  debugBackground: {fileID: 0}
+  debugTextColor: {r: 0, g: 1, b: 1, a: 1}
+  debugBackgroundColor: {r: 0, g: 0, b: 0, a: 0.6}
+  debugFontSize: 18
+  debugPosition: {x: 10, y: -360}
+  debugPadding: {x: 6, y: 4}
 --- !u!1 &1655313598
 GameObject:
   m_ObjectHideFlags: 0
