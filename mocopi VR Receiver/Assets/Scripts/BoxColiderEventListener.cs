@@ -30,7 +30,7 @@ public class BoxColiderEventListener : MonoBehaviour
 
     // 拍手デバッグ表示のオン/オフ
     [SerializeField]
-    private bool _showClapDebugOverlay = true;
+    private bool _showClapDebugOverlay = false;
 
     // デバッグ表示を載せるCanvas（未指定なら自動検索）
     [SerializeField]

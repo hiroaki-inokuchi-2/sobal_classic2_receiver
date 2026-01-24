@@ -254,7 +254,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1742150331059299978}
-  - component: {fileID: 9012345678901234567}
   m_Layer: 0
   m_Name: RaynosChanAvatar
   m_TagString: Untagged
@@ -278,36 +277,6 @@ Transform:
   - {fileID: 5442070751611867357}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9012345678901234567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268890520554478300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb0fbaa8e604790860222f642cdf83a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightHand: {fileID: 8037633007826054995}
-  leftHand: {fileID: 3854428591232699727}
-  mocopiAvatar: {fileID: 6701337749554267570}
-  clapDistanceThreshold: 0.18
-  clapCooldown: 0.4
-  requiredConsecutiveClaps: 3
-  consecutiveClapWindow: 2
-  clapSource: {fileID: 0}
-  clapClip: {fileID: 8300000, guid: 98e759dfda69aa7468d95f5a2c88e366, type: 3}
-  showDebugOverlay: 1
-  debugCanvas: {fileID: 0}
-  debugText: {fileID: 0}
-  debugBackground: {fileID: 0}
-  debugTextColor: {r: 0, g: 1, b: 1, a: 1}
-  debugBackgroundColor: {r: 0, g: 0, b: 0, a: 0.6}
-  debugFontSize: 18
-  debugPosition: {x: 10, y: -360}
-  debugPadding: {x: 6, y: 4}
 --- !u!1 &6773715755776628547
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,12 +482,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _imageAnimation: {fileID: 0}
   _mocopiAvatar: {fileID: 6701337749554267570}
+  _lazerPointer: {fileID: 0}
   _clapSource: {fileID: 0}
   _clapClip: {fileID: 8300000, guid: 98e759dfda69aa7468d95f5a2c88e366, type: 3}
   _clapCooldown: 0.4
-  _clapSource: {fileID: 0}
-  _clapClip: {fileID: 8300000, guid: 98e759dfda69aa7468d95f5a2c88e366, type: 3}
-  _clapCooldown: 0.4
+  _showClapDebugOverlay: 1
+  _clapDebugCanvas: {fileID: 0}
+  _clapDebugText: {fileID: 0}
+  _clapDebugBackground: {fileID: 0}
+  _clapDebugTextColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _clapDebugBackgroundColor: {r: 0, g: 0, b: 0, a: 0.6}
+  _clapDebugFontSize: 18
+  _clapDebugPosition: {x: 10, y: -220}
+  _clapDebugPadding: {x: 6, y: 4}
 --- !u!1 &8682164557262078367
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +617,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _imageAnimation: {fileID: 0}
   _mocopiAvatar: {fileID: 6701337749554267570}
+  _lazerPointer: {fileID: 0}
+  _clapSource: {fileID: 0}
+  _clapClip: {fileID: 0}
+  _clapCooldown: 0.4
+  _showClapDebugOverlay: 1
+  _clapDebugCanvas: {fileID: 0}
+  _clapDebugText: {fileID: 0}
+  _clapDebugBackground: {fileID: 0}
+  _clapDebugTextColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _clapDebugBackgroundColor: {r: 0, g: 0, b: 0, a: 0.6}
+  _clapDebugFontSize: 18
+  _clapDebugPosition: {x: 10, y: -220}
+  _clapDebugPadding: {x: 6, y: 4}
 --- !u!1001 &5479939558498055990
 PrefabInstance:
   m_ObjectHideFlags: 0

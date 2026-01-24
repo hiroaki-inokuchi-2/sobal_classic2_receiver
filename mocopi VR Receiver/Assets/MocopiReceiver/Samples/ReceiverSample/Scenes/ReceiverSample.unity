@@ -511,6 +511,10 @@ PrefabInstance:
       propertyPath: _imageAnimation
       value: 
       objectReference: {fileID: 1298302002}
+    - target: {fileID: 2059947048127419892, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: _showClapDebugOverlay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4729408991008855142, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
       propertyPath: _lazerPointer
       value: 
@@ -519,6 +523,10 @@ PrefabInstance:
       propertyPath: _imageAnimation
       value: 
       objectReference: {fileID: 1298302002}
+    - target: {fileID: 4729408991008855142, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: _showClapDebugOverlay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4829500090668145820, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.5
@@ -539,8 +547,19 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9012345678901234567, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+    - target: {fileID: 9123456789012345678, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: useWorldHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123456789012345678, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: showDebugOverlay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123456789012345678, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      propertyPath: handsUpHeightThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -919,7 +938,7 @@ MonoBehaviour:
   swipeMaxVertical: 0.15
   swipeMaxDepth: 0.2
   leftHandName: WRIST LEFT
-  showDebugOverlay: 1
+  showDebugOverlay: 0
   debugCanvas: {fileID: 0}
   debugText: {fileID: 0}
   debugFontSize: 20
@@ -956,9 +975,12 @@ MonoBehaviour:
   clapCooldown: 0.4
   requiredConsecutiveClaps: 3
   consecutiveClapWindow: 2
+  handsUpHeightThreshold: 1.3
+  handsUpCooldown: 2
+  handsUpCheerClip: {fileID: 8300000, guid: 73b11e7e7fa794594a524a8214b10eda, type: 3}
   clapSource: {fileID: 0}
   clapClip: {fileID: 8300000, guid: dfb437b1289c946d38be6e6395f850e5, type: 3}
-  showDebugOverlay: 1
+  showDebugOverlay: 0
   debugCanvas: {fileID: 0}
   debugText: {fileID: 0}
   debugBackground: {fileID: 0}

@@ -64,6 +64,10 @@ public class RightHandSwipeSlideController : MonoBehaviour
     private bool warnedMissingLeftHand;
     private bool debugTextInitialized;
 
+    // ClapHandsUpDetectorなどで同じ座標基準を使えるように公開する。
+    // swipeReferenceが未設定の場合はnullのままになる。
+    public Transform SwipeReference => swipeReference;
+
     void Start()
     {
         if (slideAnimation == null)
