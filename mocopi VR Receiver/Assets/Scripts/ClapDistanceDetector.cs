@@ -25,6 +25,15 @@ public class ClapDistanceDetector : MonoBehaviour
     // 連続検知の時間制限（秒）。この時間内に規定回数が必要。
     [SerializeField] private float consecutiveClapWindow = 2f;
 
+    // 両手を上げた判定に使う高さ（ワールドY）。
+    [SerializeField] private float handsUpHeightThreshold = 1.5f;
+
+    // 両手上げSEのクールダウン（秒）。
+    [SerializeField] private float handsUpCooldown = 2.0f;
+
+    // 両手上げで再生する歓声＋拍手SE（Inspectorで設定）。
+    [SerializeField] private AudioClip handsUpCheerClip;
+
     // 拍手SEのAudioSource（未指定なら実行時に取得/生成）。
     [SerializeField] private AudioSource clapSource;
 
@@ -74,6 +83,12 @@ public class ClapDistanceDetector : MonoBehaviour
     private int playedCount;
     private int consecutiveClapCount;
 
+    private float lastHandsUpTime = -999f;
+    private bool wasHandsUp;
+    private string lastHandsUpStatus = "None";
+    private int handsUpDetectedCount;
+    private int handsUpPlayedCount;
+
     // 直近の拍手検知時刻を保持する（時間ウィンドウ判定用）。
     private readonly List<float> clapDetectedTimes = new List<float>();
 
@@ -107,6 +122,9 @@ public class ClapDistanceDetector : MonoBehaviour
         // 現在の手同士の距離を測る。
         lastDistance = Vector3.Distance(rightHand.position, leftHand.position);
         bool withinThreshold = lastDistance <= clapDistanceThreshold;
+
+        // 両手を上げたときのSE判定。
+        CheckHandsUp();
 
         // 距離が閾値を超えたら「離れた」とみなして次の拍手に備える。
         if (!withinThreshold)
@@ -190,6 +208,56 @@ public class ClapDistanceDetector : MonoBehaviour
         UpdateDebugOverlay();
     }
 
+    private void CheckHandsUp()
+    {
+        bool handsUp = rightHand.position.y >= handsUpHeightThreshold &&
+                       leftHand.position.y >= handsUpHeightThreshold;
+
+        if (!handsUp)
+        {
+            wasHandsUp = false;
+            lastHandsUpStatus = "Down";
+            return;
+        }
+
+        if (wasHandsUp)
+        {
+            lastHandsUpStatus = "Holding";
+            return;
+        }
+
+        handsUpDetectedCount++;
+        lastHandsUpStatus = "Detected";
+
+        if (Time.time - lastHandsUpTime < handsUpCooldown)
+        {
+            lastHandsUpStatus = "Cooldown";
+            wasHandsUp = true;
+            return;
+        }
+
+        EnsureClapSource();
+        if (clapSource == null)
+        {
+            lastHandsUpStatus = "NoAudioSource";
+            wasHandsUp = true;
+            return;
+        }
+
+        if (handsUpCheerClip == null)
+        {
+            lastHandsUpStatus = "NoHandsUpClip";
+            wasHandsUp = true;
+            return;
+        }
+
+        clapSource.PlayOneShot(handsUpCheerClip);
+        lastHandsUpTime = Time.time;
+        handsUpPlayedCount++;
+        lastHandsUpStatus = "Played";
+        wasHandsUp = true;
+    }
+
     private void EnsureClapSource()
     {
         // Inspector未設定時は同一GameObjectから取得する。
@@ -227,6 +295,8 @@ public class ClapDistanceDetector : MonoBehaviour
         // 画面表示の文言を組み立てる。
         debugText.text =
             "Clap Distance Debug\n" +
+            "HandsUp: " + lastHandsUpStatus + " heightY=" + handsUpHeightThreshold.ToString("F2") + "\n" +
+            "HandsUp Counts: detected=" + handsUpDetectedCount + " played=" + handsUpPlayedCount + " cooldown=" + handsUpCooldown.ToString("F2") + "s\n" +
             "Status: " + lastStatus + "\n" +
             "Distance: " + lastDistance.ToString("F3") + "  Threshold: " + clapDistanceThreshold.ToString("F3") + "\n" +
             "CooldownRemaining: " + cooldownRemaining.ToString("F2") + "s\n" +
