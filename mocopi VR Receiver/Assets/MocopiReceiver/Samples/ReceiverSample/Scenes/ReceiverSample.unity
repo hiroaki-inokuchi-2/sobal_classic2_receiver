@@ -983,6 +983,9 @@ MonoBehaviour:
   handsUpCheerClip: {fileID: 8300000, guid: 73b11e7e7fa794594a524a8214b10eda, type: 3}
   clapSource: {fileID: 0}
   clapClip: {fileID: 8300000, guid: dfb437b1289c946d38be6e6395f850e5, type: 3}
+  notifyOnClap: 1
+  notifyUrl: http://localhost:3000/api/bell
+  notifyCooldown: 0.5
   showDebugOverlay: 0
   debugCanvas: {fileID: 0}
   debugText: {fileID: 0}

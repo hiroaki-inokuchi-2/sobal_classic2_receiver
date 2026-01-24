@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using Mocopi.Receiver;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class ClapDistanceDetector : MonoBehaviour
@@ -39,6 +41,18 @@ public class ClapDistanceDetector : MonoBehaviour
 
     // 拍手SEのAudioClip（Inspectorで設定）。
     [SerializeField] private AudioClip clapClip;
+
+    // 拍手動作を外部アプリへ通知するかどうか。
+    [SerializeField] private bool notifyOnClap = true;
+
+    // 通知先のURL（Sobal-Classic-3のサーバーなど）。
+    [SerializeField] private string notifyUrl = "http://localhost:3000/api/bell";
+
+    // 通知の連続送信を防ぐクールダウン（秒）。
+    [SerializeField] private float notifyCooldown = 0.5f;
+
+    // 通知を送るために必要な「連続拍手」回数。
+    [SerializeField] private int notifyRequiredConsecutiveClaps = 2;
 
     // デバッグ表示のオン/オフ。
     [SerializeField] private bool showDebugOverlay = true;
@@ -88,6 +102,9 @@ public class ClapDistanceDetector : MonoBehaviour
     private string lastHandsUpStatus = "None";
     private int handsUpDetectedCount;
     private int handsUpPlayedCount;
+
+    // 直近の通知送信時刻（連続送信防止）。
+    private float lastNotifyTime = -999f;
 
     // 直近の拍手検知時刻を保持する（時間ウィンドウ判定用）。
     private readonly List<float> clapDetectedTimes = new List<float>();
@@ -167,6 +184,10 @@ public class ClapDistanceDetector : MonoBehaviour
 
         // 現在のウィンドウ内の検知回数を更新する。
         consecutiveClapCount = clapDetectedTimes.Count;
+
+        // ここで「両手を合わせた」通知を送る（再生とは独立）。
+        // 連続回数の条件を満たした時のみ送信する。
+        TryNotifyClap();
 
         // 連続回数が足りない場合は再生せず、次回の検知を待つ。
         if (consecutiveClapCount < requiredConsecutiveClaps)
@@ -291,6 +312,52 @@ public class ClapDistanceDetector : MonoBehaviour
         if (clapSource == null)
         {
             clapSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
+    private void TryNotifyClap()
+    {
+        // 通知が不要なら何もしない。
+        if (!notifyOnClap)
+        {
+            return;
+        }
+
+        // 連続回数が足りない場合は通知しない。
+        if (consecutiveClapCount < notifyRequiredConsecutiveClaps)
+        {
+            return;
+        }
+
+        // URLが未設定なら通知を行わない。
+        if (string.IsNullOrWhiteSpace(notifyUrl))
+        {
+            return;
+        }
+
+        // 送信クールダウン中ならスキップする。
+        if (Time.time - lastNotifyTime < notifyCooldown)
+        {
+            return;
+        }
+
+        lastNotifyTime = Time.time;
+        StartCoroutine(SendClapNotification());
+    }
+
+    private IEnumerator SendClapNotification()
+    {
+        // シンプルなJSONで通知する（サーバー側のログに残しやすくする）。
+        string payload = "{\"source\":\"unity\",\"event\":\"clap\",\"time\":" + Time.time.ToString("F3") + "}";
+        using (UnityWebRequest request = new UnityWebRequest(notifyUrl, UnityWebRequest.kHttpVerbPOST))
+        {
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(payload);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // 失敗してもゲーム側の挙動は止めない。
+            yield return request.SendWebRequest();
         }
     }
 
