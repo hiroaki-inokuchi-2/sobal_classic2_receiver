@@ -292,15 +292,19 @@ public class RightHandSwipeSlideController : MonoBehaviour
         float speed = elapsed > 0f ? Mathf.Abs(delta.x) / elapsed : 0f;
         if (isSwipe(delta) && speed >= minSwipeSpeed && Time.time - state.LastSwipeTime >= swipeCooldown)
         {
-            if (slideAnimation != null && slideAnimation.CanSlide(slideDirection))
+            // 動作が無効なら判定のみ行い、スライドは抑止する。
+            if (GestureActionToggle.ActionsEnabled)
             {
-                StartCoroutine(slideAnimation.Slide(slideDirection));
-            }
-            else
-            {
-                if (slideAnimation == null)
+                if (slideAnimation != null && slideAnimation.CanSlide(slideDirection))
                 {
-                    Debug.LogWarning("Slide animation not set for swipe input.");
+                    StartCoroutine(slideAnimation.Slide(slideDirection));
+                }
+                else
+                {
+                    if (slideAnimation == null)
+                    {
+                        Debug.LogWarning("Slide animation not set for swipe input.");
+                    }
                 }
             }
 

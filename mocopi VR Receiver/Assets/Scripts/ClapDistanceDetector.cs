@@ -193,6 +193,18 @@ public class ClapDistanceDetector : MonoBehaviour
             return;
         }
 
+        // 動作が無効なら判定のみ行い、再生は抑止する。
+        if (!GestureActionToggle.ActionsEnabled)
+        {
+            lastClapTime = Time.time;
+            lastStatus = "Suppressed";
+            wasWithinThreshold = true;
+            consecutiveClapCount = 0;
+            clapDetectedTimes.Clear();
+            UpdateDebugOverlay();
+            return;
+        }
+
         // SEを再生し、時刻と状態を更新する。
         clapSource.PlayOneShot(clapClip);
         lastClapTime = Time.time;
@@ -247,6 +259,15 @@ public class ClapDistanceDetector : MonoBehaviour
         if (handsUpCheerClip == null)
         {
             lastHandsUpStatus = "NoHandsUpClip";
+            wasHandsUp = true;
+            return;
+        }
+
+        // 動作が無効なら判定のみ行い、再生は抑止する。
+        if (!GestureActionToggle.ActionsEnabled)
+        {
+            lastHandsUpTime = Time.time;
+            lastHandsUpStatus = "Suppressed";
             wasHandsUp = true;
             return;
         }
