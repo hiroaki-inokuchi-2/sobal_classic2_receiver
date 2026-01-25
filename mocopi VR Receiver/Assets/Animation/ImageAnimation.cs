@@ -10,6 +10,11 @@ public class ImageAnimation : MonoBehaviour
     // **スライド用の3つのパネル (UIオブジェクト)**
     [SerializeField] private GameObject[] slides = new GameObject[3]; // **3つのスライド**
     [SerializeField] private Image[] slideImages = new Image[3]; // **スライドの画像**
+
+    // **スライド切り替え中に背景が見えないように白幕を出す設定**
+    [SerializeField] private bool showWhiteBackdropDuringSlide = true;
+    [SerializeField] private Image whiteBackdrop; // 既存の白幕を使う場合は設定する
+    [SerializeField] private Color whiteBackdropColor = Color.white; // 白幕の色（基本は白）
     
     public Sprite[] slideSprites; // **スライド用の画像リスト**
     private int currentImageIndex = 0; // **現在表示中のスライド画像のインデックス**
@@ -41,6 +46,13 @@ public class ImageAnimation : MonoBehaviour
     void Start()
     {
         SLIDE_WIDTH = Screen.currentResolution.width;
+
+        // スライド切替中のみ表示する白幕の準備を行う。
+        if (showWhiteBackdropDuringSlide)
+        {
+            EnsureWhiteBackdrop();
+            SetBackdropVisible(false);
+        }
 
         // **スライドの初期位置を設定**
         slides[0].transform.localPosition = new Vector3(-SLIDE_WIDTH, 0, 0); // 左
@@ -88,6 +100,13 @@ public class ImageAnimation : MonoBehaviour
             yield break;
         }
 
+        // スライド中は白幕を表示して、背景のチラ見えを防ぐ。
+        if (showWhiteBackdropDuringSlide)
+        {
+            EnsureWhiteBackdrop();
+            SetBackdropVisible(true);
+        }
+
         float duration = 0.2f; // **スライド時間（秒）**
         float elapsedTime = 0f;
 
@@ -115,6 +134,13 @@ public class ImageAnimation : MonoBehaviour
 
         // **スライド完了後の更新**
         UpdateSlidesAfterMove(direction);
+
+        // スライド完了後は白幕を消す。
+        if (showWhiteBackdropDuringSlide)
+        {
+            SetBackdropVisible(false);
+        }
+
         isSliding = false;
     }
 
@@ -170,4 +196,49 @@ public class ImageAnimation : MonoBehaviour
         }
     }
 }
+
+    private void EnsureWhiteBackdrop()
+    {
+        if (whiteBackdrop != null)
+        {
+            // 既に設定済みなら色だけ合わせて使う。
+            whiteBackdrop.color = whiteBackdropColor;
+            return;
+        }
+
+        // スライドの親に白幕を追加して、背面に固定する。
+        Transform parent = slides != null && slides.Length > 0 && slides[0] != null
+            ? slides[0].transform.parent
+            : null;
+
+        if (parent == null)
+        {
+            return;
+        }
+
+        GameObject backdropObject = new GameObject("SlideWhiteBackdrop");
+        backdropObject.transform.SetParent(parent, false);
+        backdropObject.transform.SetAsFirstSibling(); // スライドの背面に配置する
+
+        RectTransform rectTransform = backdropObject.AddComponent<RectTransform>();
+        rectTransform.anchorMin = Vector2.zero;
+        rectTransform.anchorMax = Vector2.one;
+        rectTransform.offsetMin = Vector2.zero;
+        rectTransform.offsetMax = Vector2.zero;
+
+        whiteBackdrop = backdropObject.AddComponent<Image>();
+        whiteBackdrop.color = whiteBackdropColor;
+        whiteBackdrop.raycastTarget = false; // UI操作の邪魔をしないようにする
+    }
+
+    private void SetBackdropVisible(bool visible)
+    {
+        if (whiteBackdrop == null)
+        {
+            return;
+        }
+
+        // 単純に有効/無効を切り替えるだけで見た目を制御する。
+        whiteBackdrop.gameObject.SetActive(visible);
+    }
 }
