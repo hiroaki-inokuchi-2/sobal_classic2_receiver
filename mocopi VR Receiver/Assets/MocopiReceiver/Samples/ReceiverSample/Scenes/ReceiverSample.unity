@@ -569,6 +569,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6268890520554478300, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1497245386}
+    - targetCorrespondingSourceObject: {fileID: 6268890520554478300, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1497245387}
   m_SourcePrefab: {fileID: 100100000, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
 --- !u!4 &884447105 stripped
 Transform:
@@ -655,6 +658,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046627843}
   m_CullTransparentMesh: 1
+--- !u!4 &1060785025 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1130970755550977478, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
+  m_PrefabInstance: {fileID: 884447104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1107654535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6281049905820148646, guid: 32cfab7f2f8154ae3a7d91e783c80e8d, type: 3}
@@ -986,6 +994,7 @@ MonoBehaviour:
   notifyOnClap: 1
   notifyUrl: http://localhost:3000/api/bell
   notifyCooldown: 0.5
+  notifyRequiredConsecutiveClaps: 2
   showDebugOverlay: 0
   debugCanvas: {fileID: 0}
   debugText: {fileID: 0}
@@ -1009,6 +1018,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleKey: 9
   startEnabled: 1
+--- !u!114 &1497245387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497245382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28eb8318dd54e6b8eb747551bc74c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headTransform: {fileID: 1060785025}
+  referenceTransform: {fileID: 0}
+  bowHeightThreshold: 1.24
+  bowResetHeight: 1.25
+  notifyOnBow: 1
+  notifyUrl: http://localhost:3000/api/worship
+  notifyCooldown: 3
+  showDebugOverlay: 0
+  debugCanvas: {fileID: 0}
+  debugText: {fileID: 0}
+  debugBackground: {fileID: 0}
+  debugTextColor: {r: 0, g: 1, b: 1, a: 1}
+  debugBackgroundColor: {r: 0, g: 0, b: 0, a: 0.6}
+  debugFontSize: 18
+  debugPosition: {x: 10, y: -520}
+  debugPadding: {x: 6, y: 4}
 --- !u!1 &1655313598
 GameObject:
   m_ObjectHideFlags: 0
