@@ -31,7 +31,7 @@ public class ClapDistanceDetector : MonoBehaviour
     [SerializeField] private float handsUpHeightThreshold = 1.5f;
 
     // 両手上げSEのクールダウン（秒）。
-    [SerializeField] private float handsUpCooldown = 2.0f;
+    [SerializeField] private float handsUpCooldown = 0.25f;
 
     // 両手上げで再生する歓声＋拍手SE（Inspectorで設定）。
     [SerializeField] private AudioClip handsUpCheerClip;
