@@ -901,6 +901,9 @@ MonoBehaviour:
   - {fileID: 372509660}
   - {fileID: 1046627844}
   - {fileID: 1655313599}
+  showWhiteBackdropDuringSlide: 1
+  whiteBackdrop: {fileID: 0}
+  whiteBackdropColor: {r: 1, g: 1, b: 1, a: 1}
   slideSprites:
   - {fileID: 21300000, guid: e6b0b0ec4084f994badd218e1d2a8bec, type: 3}
   - {fileID: 21300000, guid: 86d6f9eb993736c449f4e413c829d3b4, type: 3}
@@ -936,6 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 1030860495}
   leftHand: {fileID: 884447105}
+  clapDistanceDetector: {fileID: 1497245384}
   slideAnimation: {fileID: 1298302002}
   swipeReference: {fileID: 0}
   requireSwipeZone: 1

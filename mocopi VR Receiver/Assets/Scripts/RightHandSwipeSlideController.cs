@@ -242,6 +242,14 @@ public class RightHandSwipeSlideController : MonoBehaviour
 
     private void HandleSwipeForHand(Transform hand, SwipeState state, System.Func<Vector3, bool> isSwipe, int slideDirection)
     {
+        // 両手が「スワイプ可能な高さ」にある時は誤作動を防ぐため抑止する。
+        // （拍手時に手が同じ高さ帯に入るとスワイプ条件を満たしやすいため）
+        if (IsSwipeSuppressedByHeight())
+        {
+            state.SwipeTracking = false;
+            return;
+        }
+
         if (hand == null)
         {
             state.SwipeTracking = false;
@@ -404,5 +412,33 @@ public class RightHandSwipeSlideController : MonoBehaviour
         }
 
         return null;
+    }
+
+    private bool IsSwipeSuppressedByHeight()
+    {
+        // 両手が揃わない場合は抑止しない（既存挙動を維持する）。
+        if (rightHand == null || leftHand == null)
+        {
+            return false;
+        }
+
+        // スワイプゾーンの基準を取得する（未設定ならワールド/ルート基準）。
+        Transform zoneReference = GetZoneReference();
+        if (zoneReference == null)
+        {
+            return false;
+        }
+
+        // 両手のYがスワイプ可能な高さ帯に入っているかを判定する。
+        // 高さ帯はswipeZoneCenter.y ± swipeZoneSize.y/2で定義する。
+        Vector3 rightLocal = zoneReference.InverseTransformPoint(rightHand.position);
+        Vector3 leftLocal = zoneReference.InverseTransformPoint(leftHand.position);
+
+        float halfHeight = swipeZoneSize.y * 0.5f;
+        bool rightInHeight = Mathf.Abs(rightLocal.y - swipeZoneCenter.y) <= halfHeight;
+        bool leftInHeight = Mathf.Abs(leftLocal.y - swipeZoneCenter.y) <= halfHeight;
+
+        // 両手が高さ帯に入っている間はスワイプを抑止する。
+        return rightInHeight && leftInHeight;
     }
 }

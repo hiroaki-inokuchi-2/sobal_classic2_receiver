@@ -102,6 +102,10 @@ public class ClapDistanceDetector : MonoBehaviour
     private string lastHandsUpStatus = "None";
     private int handsUpDetectedCount;
     private int handsUpPlayedCount;
+    private bool isHandsUpActive;
+
+    // 外部から「両手を上げている最中か」を参照できるようにする。
+    public bool IsHandsUpActive => isHandsUpActive;
 
     // 直近の通知送信時刻（連続送信防止）。
     private float lastNotifyTime = -999f;
@@ -124,6 +128,8 @@ public class ClapDistanceDetector : MonoBehaviour
         if (mocopiAvatar != null && !mocopiAvatar.IsFirstMotionReceived)
         {
             lastStatus = "NotReady";
+            // モーション未受信時は手上げ状態をクリアしておく。
+            isHandsUpActive = false;
             UpdateDebugOverlay();
             return;
         }
@@ -132,6 +138,8 @@ public class ClapDistanceDetector : MonoBehaviour
         if (rightHand == null || leftHand == null)
         {
             lastStatus = "MissingHand";
+            // 手が未設定の間は手上げ状態をクリアしておく。
+            isHandsUpActive = false;
             UpdateDebugOverlay();
             return;
         }
@@ -245,6 +253,8 @@ public class ClapDistanceDetector : MonoBehaviour
     {
         bool handsUp = rightHand.position.y >= handsUpHeightThreshold &&
                        leftHand.position.y >= handsUpHeightThreshold;
+        // 現在フレームの手上げ判定を保持する（スワイプ抑止などに使う）。
+        isHandsUpActive = handsUp;
 
         if (!handsUp)
         {
